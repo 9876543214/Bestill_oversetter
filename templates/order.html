@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,0,0" /> <!--google fonts symbol-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script> <!--jquery-->
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script> <!--validation-->
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>  
+    <script src="{{ url_for('static', filename='js/validate.js') }}" defer></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <span class="material-symbols-outlined" onclick="window.location.href = '/'">
+        arrow_back
+    </span>
+
+    <header class="header">
+        <h1>Order translation service</h1>
+    </header>
+
+    <div class="order-form">
+        <form action="/process-order" method="post" enctype="multipart/form-data" id="order" class="form order">
+            
+            <div class="input-container">    
+                <input type="text" id="book" name="book" required class="input"><br>
+                <label for="book" class="placeholder">Book name</label>
+            </div>
+            
+            <div class="input-container">
+                <input type="number" id="book_pages" name="book_pages" required class="input"><br>
+                <label for="book_pages" class="placeholder">Number of Pages</label>
+            </div>
+
+            <div class="container nmt"> <!-- dropdown-meny hvor bruker velger språk å oversette fra-->
+                <span class="choose">Translate from</span>
+                <div class="dropdown">
+                    <div class="select">
+                        <span>Select Language</span>
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="translate_from" id="translate_from">
+                    <ul class="dropdown-menu"> <!-- tilgjengelige språk å oversette fra-->
+                        <li id="english">English</li>
+                        <li id="french">French</li>
+                        <li id="german">German</li>
+                        <li id="italian">Italian</li>
+                        <li id="japanese">Japanese</li>
+                        <li id="korean">Korean</li>
+                        <li id="norwegian">Norwegian</li>
+                        <li id="portuguese">Portuguese</li>
+                        <li id="russian">Russian</li>
+                        <li id="spanish">Spanish</li>
+                    </ul>
+                </div>
+                <span class="msg"></span>
+            </div>
+            
+            <div class="container nmt"> <!-- dropdown-meny hvor bruker velger språk å oversette til -->
+                <span class="choose">Translate to</span>
+                <div class="dropdown">
+                    <div class="select">
+                        <span>Select Language</span>
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="translate_to" id="translate_to">
+                    <ul class="dropdown-menu"> <!-- Tilgjengelige språk å oversette til-->
+                        <li id="english">English</li> 
+                        <li id="french">French</li>
+                        <li id="german">German</li>
+                        <li id="italian">Italian</li>
+                        <li id="japanese">Japanese</li>
+                        <li id="korean">Korean</li>
+                        <li id="norwegian">Norwegian</li>
+                        <li id="portuguese">Portuguese</li>
+                        <li id="russian">Russian</li>
+                        <li id="spanish">Spanish</li>
+                    </ul>
+                </div>
+                
+            </div>
+            {% if error == "3"%}
+            <span id="err">Translate from and translate to cannot be the same language</span>
+            {% endif %}
+            
+            <button type="submit" class="submit pmt" id="submit">Order</button>
+            
+            <p id="price">Prices may wary. Base price is 0.77 NOK per word.</p>
+            
+        </form>
+        <form action="/process-order" method="post" enctype="multipart/form-data" id="invisible-form" style="display:none;"> <!-- vet ikke hvorfor, men det gikk ikke å submitte formen over,-->
+                                                                                                                             <!-- så jeg lagde en til usynlig form som submitter isteden-->
+            <input type="hidden" name="book" id="invisible-book">
+            <input type="hidden" name="book_pages" id="invisible-book_pages">
+            <input type="hidden" name="translate_from" id="invisible-translate_from">
+            <input type="hidden" name="translate_to" id="invisible-translate_to">
+        </form>
+    </div>
+</body>
+</html>

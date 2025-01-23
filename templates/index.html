@@ -4,76 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>  
     <title>Document</title>
 </head>
 <body>
     <header>
         <h1>Book Translator</h1>
-        <p class="login_signup"><a href="/login">Login</a> / <a href="/signup">Signup</a></p>
+        <nav>
+            {% if loggedin == "0" %}
+            <p class="login_signup"><a href="/login">Login</a> / <a href="/signup">Signup</a></p>
+            {% else %}
+            <p><a href="/order">Order translation service</a></p>
+            <p class="login_signup"><a href="/logout">Logout</a></p>
+            {% endif %}
+        </nav>
     </header>
 
     <div class="content">
         <h2>Translate your book</h2>
         <p>Order our translation service to get your book translated to any of our 10 avaliable languages</p>
+        <p>Our translators are professionals and will make sure your book is translated with the best quality</p>
+        <p>All for the low price of 0.77 NOK per word</p>
 
-        <div class="index-form">
-
-            <form action="/upload" method="post" enctype="multipart/form-data">
-                
-                <div class="input-container">    
-                    <input type="text" id="book" name="book" required class="input"><br>
-                    <label for="book" class="placeholder">Book name</label>
-                </div>
-                
-                <div class="input-container">
-                    <input type="number" id="book_pages" name="book_pages" required class="input"><br>
-                    <label for="book_pages" class="placeholder">Number of Pages</label>
-                </div>
-
-                <div class="container">
-                    <span class="choose">Translate from</span>
-                    <div class="dropdown">
-                        <div class="select">
-                            <span>Select Language</span>
-                            <i class="fa fa-chevron-left"></i>
-                        </div>
-                        <input type="hidden" name="translate_from">
-                        <ul class="dropdown-menu">
-                            <li id="english">English</li>
-                            <li id="french">French</li>
-                            <li id="german">German</li>
-                            <li id="italian">Italian</li>
-                            <li id="japanese">Japanese</li>
-                            <li id="korean">Korean</li>
-                            <li id="norwegian">Norwegian</li>
-                            <li id="portuguese">Portuguese</li>
-                            <li id="russian">Russian</li>
-                            <li id="spanish">Spanish</li>
-                        </ul>
-                    </div>
-                    <span class="msg"></span>
-                </div>
-                
-                <label for="translate_to">Translate To:</label>
-                <select id="translate_to" name="translate_to" required>
-                    <option value="English">English</option>
-                    <option value="French">French</option>
-                    <option value="German">German</option>
-                    <option value="Italian">Italian</option>
-                    <option value="Japanese">Japanese</option>
-                    <option value="Korean">Korean</option>
-                    <option value="Chinese">Norwegian</option>
-                    <option value="Portuguese">Portuguese</option>
-                    <option value="Russian">Russian</option>
-                    <option value="Spanish">Spanish</option>
-                </select><br>
-                
-                <input type="submit" value="Submit">
-                
-            </form>
-        </div>
     </div>
 </body>
 </html>

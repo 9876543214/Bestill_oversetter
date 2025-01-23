@@ -74,11 +74,10 @@ body h2 {
     flex-direction: row;
 }
 
-.nav {
-    width: 10%;
-    position: absolute;
-    margin-left: 80%;
-    margin-top: 2.3%;
+nav {
+    display: flex;
+    right: 5%;
+    gap: 20px;
 }
 
 .input {
@@ -93,7 +92,7 @@ body h2 {
     padding: 4px 15px 0;
     width: 100%;
     margin-bottom: 12px;
-    z-index: 100000000000000000000000000000000000;
+    z-index: 10;
 }
 
 .input-container {
@@ -160,7 +159,7 @@ body h2 {
     margin-right: 50vw;
 }
 
-.index-form {
+.order-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -224,13 +223,6 @@ body h2 {
     padding-top: 3px;
 }
 
-#welcome-message{
-    margin-bottom: 30px;
-}
-
-.margin-top {
-    margin-top: 35px;
-}
 
 .just-validate-error-label {
     position: absolute;
@@ -249,14 +241,16 @@ span.choose {
   display: inherit
 }
 .container {
-  width: 500px;
-  margin: 50px auto 0;
   text-align: center
+}
+.nmt {
+    margin-top: -10px;
 }
 
 /*Styling Selectbox*/
+/* https://www.sliderrevolution.com/resources/css-select-styles/ */
 .dropdown {
-  width: 300px;
+  width: 100%;
   display: inline-block;
   background-color: #303245;
   border-radius: 2px;
@@ -324,4 +318,15 @@ span.choose {
 }
 .dropdown .dropdown-menu li:active {
     background-color: #595858
+}
+
+.pmt {
+    margin-top: 20px;
+}
+
+#price {
+    margin-top: 20px;
+    font-style: italic;
+    font-weight: 100;
+    color: #9b9797;
 }
