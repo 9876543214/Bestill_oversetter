@@ -88,3 +88,26 @@ if (document.getElementById("order")) {
             document.getElementById("invisible-form").submit();
         });
 }
+
+if (document.getElementById("login")) {
+    const validation = new JustValidate("#login");
+
+    validation
+        .addField("#email", [
+        {
+            rule: "required"
+        }
+        ])
+        .addField("#password", [
+        {
+            rule: "required"
+        },
+        {
+            rule: "password"
+        }
+    ])
+    .onSuccess((event) => {
+        document.getElementById("login").submit();
+    });
+
+}

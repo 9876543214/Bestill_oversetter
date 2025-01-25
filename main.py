@@ -126,7 +126,7 @@ def estimate_finish_by(book_pages): # Estimerer tid det vil ta å oversette boke
         result = False
     finally:
         conn.close()
-    base_days = int(book_pages) / 20 #20 sider om dagen
+    base_days = int(book_pages) / 40 #40 sider om dagen
     weekends = 2 * math.floor(base_days / 5) # helg
     total_days = base_days + weekends + 2 # + 2 dager i tilfelle
     total_days = round(total_days)

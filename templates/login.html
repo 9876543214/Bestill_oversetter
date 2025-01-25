@@ -11,7 +11,7 @@
 </head>
 <body class="body-login">
     
-    <span class="material-symbols-outlined" onclick="window.location='/'">
+    <span class="material-symbols-outlined arrow_back" onclick="window.location='/'">
     arrow_back
     </span>
 
@@ -19,7 +19,7 @@
 
         <h1>Login</h1>
         
-        <form action="/login_process"  method="post" id="form" class="form">
+        <form action="/login_process"  method="post" id="form login" class="form">
             <div class="input-container">
                 <input type="text" name="email" class="input">
                 <label for="email" class="placeholder">Email</label>
@@ -40,29 +40,5 @@
         
         <p>Don't have an account? <a href="/signup">Sign up here</a>.</p>
     </div>
-
-    <script>
-        const validation = new JustValidate("#form");
-
-        validation
-            .addField("#email", [
-            {
-                rule: "required"
-            }
-            ])
-            .addField("#password", [
-            {
-                rule: "required"
-            },
-            {
-                rule: "password"
-            }
-        ])
-        .onSuccess((event) => {
-            document.getElementById("form").submit();
-        });
-
-    </script>
-
 </body>
 </html>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preload" as="style"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=new_releases" />
     <title>Document</title>
 </head>
 <body>
@@ -19,12 +21,45 @@
         </nav>
     </header>
 
-    <div class="content">
-        <h2>Translate your book</h2>
-        <p>Order our translation service to get your book translated to any of our 10 avaliable languages</p>
-        <p>Our translators are professionals and will make sure your book is translated with the best quality</p>
-        <p>All for the low price of 0.77 NOK per word</p>
-
+    <div class="index-content">
+        <div class="about">
+            <h2>Translate your book</h2>
+            <p>Our translation agency is your linguistic partner, translating your books with the highest quality. Our agency has offices in 
+                Oslo, Stockholm, Copenhagen, Helsinki, and Reykjavik. From our office, we have been helping Nordic customers with translation 
+                since 2010. We have particularly specialized in translations to and from the Nordic languages, so you can confidently entrust 
+                your texts to us and expect to receive accurate and linguistically fluent translations. To ensure you receive the highest 
+                quality translation, we have gathered the industry's most skilled translators. Diction delivers professional 
+                language solutions to both private individuals and businesses, and we look forward to being able to help you.</p>
+        </div>
+        <div class="boxes">
+            <div class="quality">
+                <div class="header_box">
+                    <span class="material-symbols-outlined checkmark">
+                        new_releases
+                    </span>
+                    <h2>Best quality</h2>
+                </div>
+                <p>Our translators are professionals and will make sure your book is translated with the best quality</p>
+            </div>
+            <div class="prices">
+                <div class="header_box">
+                    <span class="material-symbols-outlined checkmark">
+                        new_releases
+                    </span>
+                    <h2>Lowest prices</h2>
+                </div>
+                <p>We translate from NOK 0.77 per word</p>
+            </div>
+            <div class="speed">
+                <div class="header-box">
+                    <span class="material-symbols-outlined checkmark">
+                        new_releases
+                    </span>
+                    <h2>Fast translation</h2>
+                </div>
+                <p>We translate at least 30 pages per day</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
